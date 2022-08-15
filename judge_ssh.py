@@ -21,7 +21,7 @@ class MyThread(threading.Thread):
         start_index = self.threadID * 5
         for i in range(start_index, start_index+5):
             url = self.judge_url + str(i)
-            p = subprocess.Popen("ping -n 1 {0} \n".format(url), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+            p = subprocess.Popen("ping -n 1 {0} \n".format(url), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) # 注意windows下ping使用-n linux下使用-c计数
             out, err = p.communicate()
             if p.returncode==0:
                 print(url+"\t通")
